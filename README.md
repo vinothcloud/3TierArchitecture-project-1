@@ -1,3 +1,6 @@
+
+
+
 # AWS Three-Tier Web Application Infrastructure 
 
 
@@ -139,28 +142,30 @@ sudo touch index.html script.js styles.css
 ---
 
 ## 14. Create Application Load Balancer (ALB)
-Create Backend Target Group for App Server EC2 with:
-Port: 5000
-Health Check Path: /login
-Create Backend Load Balancer in the public subnet with:
-Listener Port: 80
-Attach the Target Group
-Create Frontend Target Group for Web Server EC2 with:
-Port: 80
-Health Check Path: /
-Create Frontend Load Balancer in the public subnet with:
-Listener Port: 80
-Attach the Target Group
+
+Create **Backend Target Group** for App Server EC2 with:
+   Port: 5000
+   Health Check Path: /login
+Create **Backend Load Balancer** in the public subnet with:
+   Listener Port: 80
+   Attach the Target Group
+Create **Frontend Target Group** for Web Server EC2 with:
+   Port: 80
+   Health Check Path: /
+Create **Frontend Load Balancer** in the public subnet with:
+   Listener Port: 80
+   Attach the Target Group
 
 ---
 
-15. Configure Route 53 to Load Balancer
+## 15. Configure Route 53 to Load Balancer
 
 Create an A record with alias pointing to the Frontend Load Balancer.
 
 ---
 
-16. Attach ACM Certificate to Load Balancer
+## 16. Attach ACM Certificate to Load Balancer
+
 
 
 
