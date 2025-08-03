@@ -91,7 +91,7 @@ vi mumbai_r.pem
 
 chmod 400 mumbai_r.pem
 
-ssh -i mumbai_r.pem ubuntu@<App-Server-Private-IP>
+ssh -i mumbai_r.pem ubuntu@<App_Server_Private_IP>
 
 ---
 
@@ -146,12 +146,15 @@ sudo touch index.html script.js styles.css
 Create **Backend Target Group** for App Server EC2 with:
    Port: 5000
    Health Check Path: /login
+   
 Create **Backend Load Balancer** in the public subnet with:
    Listener Port: 80
    Attach the Target Group
+   
 Create **Frontend Target Group** for Web Server EC2 with:
    Port: 80
    Health Check Path: /
+   
 Create **Frontend Load Balancer** in the public subnet with:
    Listener Port: 80
    Attach the Target Group
@@ -165,6 +168,7 @@ Create an A record with alias pointing to the Frontend Load Balancer.
 ---
 
 ## 16. Attach ACM Certificate to Load Balancer
+
 
 
 
