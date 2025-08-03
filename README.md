@@ -85,7 +85,9 @@
 
 
 vi mumbai_r.pem
+
 chmod 400 mumbai_r.pem
+
 ssh -i mumbai_r.pem ubuntu@<App-Server-Private-IP>
 
 ---
@@ -93,7 +95,9 @@ ssh -i mumbai_r.pem ubuntu@<App-Server-Private-IP>
 ## 11. Setup Database Client on App Server
 
 sudo apt update
+
 sudo apt install mysql-client -y
+
 mysql -h <RDS-endpoint> -P 3306 -u admin -p
 
 ---
@@ -101,15 +105,21 @@ mysql -h <RDS-endpoint> -P 3306 -u admin -p
 ## 12. Setup App Server Environment
 
 sudo apt update
+
 sudo apt install python3 python3-pip python3-venv -y
+
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install flask flask-mysql-connector flask-cors
+
 nohup python3 app.py > output.log 2>&1 &
 
 ps -ef | grep app.py
 
 cat output.log 
+
 curl http://localhost:5000/login
 
 ---
@@ -117,9 +127,13 @@ curl http://localhost:5000/login
 ## 13. Setup Web Server (Apache)
 
 sudo apt update
+
 sudo apt install apache2 -y
+
 sudo systemctl start apache2
+
 cd /var/www/html/
+
 sudo touch index.html script.js styles.css
 
 ---
@@ -147,5 +161,6 @@ Create an A record with alias pointing to the Frontend Load Balancer.
 ---
 
 16. Attach ACM Certificate to Load Balancer
+
 
 
